@@ -91,6 +91,17 @@ public class AddLessonTest extends Base2{
         driver.close();
     }
 
+    @Test
+    public void addlesson_test7() throws InterruptedException{
+        setUp2();
+        generateClass();
+        driver.findElement(By.name("kip")).sendKeys("2");
+        driver.findElement(By.xpath("/html/body/div/form/button")).click();
+        Assert.assertEquals(driver.getTitle(), expectedTitle);
+        Assert.assertEquals(driver.findElement(By.xpath("/html/body/h4")).getText(), "Yêu cầu nhập lại!");
+        driver.close();
+    }
+
     public void generateClass(){
         WebElement addSubjBtn = driver.findElement(By.xpath("//*[@id=\"main\"]/tbody/tr[2]/th[8]/a"));
         System.out.println(addSubjBtn.getText());
